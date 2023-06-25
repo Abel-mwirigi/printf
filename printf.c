@@ -1,7 +1,5 @@
-#include<stdio.h>
-#include<stdarg.h>
-#include<stdlib.h>
 #include "main.h"
+
 /**
  * _printf - prints output according to format
  * @format: character
@@ -15,7 +13,7 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	while (*format != '\0')
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
@@ -47,10 +45,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(*format);
+			_putchar(format[i]);
 			printed_chars++;
 		}
-		format++;
+		i++;
 	}
 	va_end(list);
 	return (printed_chars);
