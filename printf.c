@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
  * _printf - prints output according to format
@@ -7,49 +8,47 @@
  */
 int _printf(const char *format, ...)
 {
-	int printed_chars = 0;
-	int i = 0;
 	va_list list;
+	int i = 0;
+	int count = 0;
 
 	va_start(list, format);
+
+	if (format == NULL)
+		return (-1);
 
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == '\0')
+				break;
 
-			if (format[i] == 'c')
+			if (format[i] == 'c' || format[i] == 's' || format[i] == 'd' || format[i] == 'i')
 			{
-				int c = va_arg(list, int);
-
-				_putchar(c);
-				printed_chars++;
-			}
-			else if (format[i] == 's')
-			{
-				char *s = va_arg(list, char *);
-
-				while (*s != '\0')
-				{
-					_putchar(*s);
-					s++;
-					printed_chars++;
-				}
+				count += (*checker(&format[i]))(list);
+				i++;
 			}
 			else if (format[i] == '%')
 			{
 				_putchar('%');
-				printed_chars++;
+				count++;
+			}
+			else
+			{
+				_putchar('%');
+				_putchar(format[i]);
+				count += 2;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
-			printed_chars++;
+			count++;
 		}
 		i++;
 	}
 	va_end(list);
-	return (printed_chars);
+	return (count);
 }

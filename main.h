@@ -3,22 +3,20 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include<stddef.h>
 #include <unistd.h>
 
-struct print
+typedef struct global
 {
-	int i;
-	int j;
-	int count;
-	va_list list;
-	char *str;
-	char *format;
-} st;
+	char *c;
+	int (*f)(va_list);
+}specifier;
 
+int (*checker(const char *format))(va_list list);
 int _printf(const char *format, ...);
 int _putchar(char c);
-void _putc(void);
-void _putint(void);
-void _putstr(void);
+int printchar(va_list list);
+int printint(va_list list);
+int printstr(va_list list);
 
 #endif/* MAIN_H */
