@@ -9,8 +9,8 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i = 0;
-	int count = 0;
+	unsigned long int i = 0;
+	unsigned long int count = 0;
 
 	va_start(list, format);
 
@@ -27,7 +27,8 @@ int _printf(const char *format, ...)
 
 			if (format[i] == 'c' || format[i] == 's' || format[i] == 'd' || format[i] == 'i')
 			{
-				count += (*checker(&format[i]))(list);
+				count += 1;
+				(*checker(&format[i]))(list);
 				i++;
 			}
 			else if (format[i] == '%')
@@ -42,11 +43,8 @@ int _printf(const char *format, ...)
 				count += 2;
 			}
 		}
-		else
-		{
-			_putchar(format[i]);
-			count++;
-		}
+		_putchar(format[i]);
+		count++;
 		i++;
 	}
 	va_end(list);

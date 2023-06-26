@@ -50,5 +50,6 @@ int printstr(va_list list)
 		_putchar(s[i]);
 		i++;
 	}
+	_putchar('\0');
 	return (0);
 }
