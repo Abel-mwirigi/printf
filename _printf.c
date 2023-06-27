@@ -9,11 +9,9 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	unsigned long int i = 0;
-	unsigned long int count = 0;
+	int i = 0, count = 0;
 
 	va_start(list, format);
-
 	if (format == NULL)
 		return (-1);
 
@@ -25,15 +23,15 @@ int _printf(const char *format, ...)
 			if (format[i] == '\0')
 				break;
 
-			if (format[i] == 'c' || format[i] == 's' || format[i] == 'd' || format[i] == 'i')
+			if (format[i] == 'c' || format[i] == 's' || format[i] == 'd'
+				|| format[i] == 'i')
 			{
 				count += (*checker(&format[i]))(list);
 				i++;
 			}
 			else if (format[i] == '%')
 			{
-				_putchar('%');
-				count++;
+				count += _putchar('%');
 			}
 			else
 			{
@@ -42,8 +40,7 @@ int _printf(const char *format, ...)
 				count += 2;
 			}
 		}
-		_putchar(format[i]);
-		count++;
+		count += _putchar(format[i]);
 		i++;
 	}
 	va_end(list);
