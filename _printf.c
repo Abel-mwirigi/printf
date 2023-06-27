@@ -27,8 +27,7 @@ int _printf(const char *format, ...)
 
 			if (format[i] == 'c' || format[i] == 's' || format[i] == 'd' || format[i] == 'i')
 			{
-				count += 1;
-				(*checker(&format[i]))(list);
+				count += (*checker(&format[i]))(list);
 				i++;
 			}
 			else if (format[i] == '%')
