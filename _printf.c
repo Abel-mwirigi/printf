@@ -20,9 +20,6 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == '\0')
-				break;
-
 			if (format[i] == '%')
 			{
 				count += _putchar('%');
@@ -39,6 +36,7 @@ int _printf(const char *format, ...)
 		count += _putchar(format[i]);
 		i++;
 	}
+	_putchar(-1);
 	va_end(list);
 	return (count);
 }
