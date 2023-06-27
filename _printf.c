@@ -23,21 +23,17 @@ int _printf(const char *format, ...)
 			if (format[i] == '\0')
 				break;
 
+			if (format[i] == '%')
+			{
+				count += _putchar('%');
+				continue;
+			}
+
 			if (format[i] == 'c' || format[i] == 's' || format[i] == 'd'
 				|| format[i] == 'i')
 			{
 				count += (*checker(&format[i]))(list);
 				i++;
-			}
-			else if (format[i] == '%')
-			{
-				count += _putchar('%');
-			}
-			else
-			{
-				_putchar('%');
-				_putchar(format[i]);
-				count += 2;
 			}
 		}
 		count += _putchar(format[i]);
