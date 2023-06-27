@@ -51,5 +51,5 @@ int printstr(va_list list)
 		i++;
 	}
 	_putchar('\0');
-	return (0);
+	return (i);
 }
