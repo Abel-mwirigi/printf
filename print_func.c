@@ -98,7 +98,7 @@ int printint(va_list list)
 int printstr(va_list list)
 {
 	char *s;
-	int i = 0;
+	int i = 0, count = 0;
 
 	s = va_arg(list, char *);
 
@@ -106,10 +106,11 @@ int printstr(va_list list)
 	{
 		s = "(null)";
 	}
+
 	while (s[i] != '\0')
 	{
-		_putchar(s[i]);
+		count += _putchar(s[i]);
 		i++;
 	}
-	return (i);
+	return (count);
 }
