@@ -1,8 +1,5 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include<stdarg.h>
-#include<stddef.h>
 #include "main.h"
+
 /**
  * checker - checks the format specifier
  * @format:argument that precedes the list
@@ -15,6 +12,7 @@ int (*checker(char format))(va_list list)
 		{"s", printstr},
 		{"d", printdec},
 		{"i", printint},
+		{"b", print_binary},
 		{NULL, NULL}
 	};
 	int i = 0;

@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
 * print_binary - converts the unsigned int argument to binary and prints
