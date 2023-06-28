@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int i = 0, count = 0;
 
 	va_start(list, format);
-	if (format == NULL)
+	if (format[0] == '%' && format[1] == '\0')
 		return (-1);
 
 	while (format[i] != '\0')
@@ -23,14 +23,16 @@ int _printf(const char *format, ...)
 			if (format[i] == '%')
 			{
 				count += _putchar('%');
-				continue;
-			}
-
-			if (format[i] == 'c' || format[i] == 's' || format[i] == 'd'
-				|| format[i] == 'i')
-			{
-				count += (*checker(&format[i]))(list);
 				i++;
+			}
+			else if (format[i] != '\0')
+			{
+				if (format[i] == 'c' || format[i] == 's' || format[i] == 'd'
+					|| format[i] == 'i')
+				{
+					count += (*checker(&format[i]))(list);
+					i++;
+				}
 			}
 		}
 		count += _putchar(format[i]);
