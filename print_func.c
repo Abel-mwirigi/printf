@@ -43,7 +43,7 @@ int printstr(va_list list)
 
 	if (s == NULL)
 	{
-		return (printstr("(null)"));
+		s = "(null)";
 	}
 	while (s[i] != '\0')
 	{
