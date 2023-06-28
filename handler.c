@@ -8,7 +8,7 @@
  * @format:argument that precedes the list
  * Return:0 success
  */
-int (*checker(const char *format))(va_list list)
+int (*checker(char format))(va_list list)
 {
 	specifier ar[] = {
 		{"c", printchar},
@@ -21,11 +21,11 @@ int (*checker(const char *format))(va_list list)
 
 	while (ar[i].c != NULL)
 	{
-		if (*(ar[i].c) == *format)
+		if (*ar[i].c == format)
 		{
 			return (ar[i].f);
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
