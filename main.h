@@ -2,9 +2,10 @@
 #define MAIN_h
 
 #include <stdarg.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include<stddef.h>
 #include <unistd.h>
+#include <limits.h>
 
 typedef struct global
 {
@@ -18,5 +19,6 @@ int _putchar(char c);
 int printchar(va_list list);
 int printint(va_list list);
 int printstr(va_list list);
+void set_int(int a, int *i);
 
 #endif/* MAIN_H */
