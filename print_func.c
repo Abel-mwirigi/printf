@@ -10,10 +10,7 @@
  */
 int printchar(va_list list)
 {
-	char c;
-
-	c = va_arg(list, int);
-	return _putchar(c);
+	return _putchar(va_arg(list, int));
 }
 /**
  * printint - print integer
