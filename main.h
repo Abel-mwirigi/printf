@@ -18,6 +18,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int printchar(va_list list);
 int printint(va_list list);
+int printdec(va_list list);
 int printstr(va_list list);
 void set_int(int a, int *i);
 

@@ -38,6 +38,44 @@ void set_int(int a, int *i)
 	(*i)++;
 }
 
+/**
+* printdec - prints a decimal number to standard output
+* @inputs: the list of integers to be printed
+* Return: the number of characters printed
+*/
+
+int printdec(va_list list)
+{
+	unsigned int abs, aux, zero, count;
+	int num;
+
+	count = 0;
+
+	num = va_arg(list, int);
+	if (num < 0)
+	{
+		abs = (num * -1);
+		count += _putchar('-');
+	}
+	else
+		abs = num;
+
+	aux = abs;
+	zero = 1;
+	while (aux > 9)
+	{
+		aux /= 10;
+		zero *= 10;
+	}
+
+	while (zero >= 1)
+	{
+		count += _putchar(((abs / zero) % 10) + '0');
+		zero /= 10;
+	}
+	return (count);
+}
+
 
 /**
  * printint - print integer
@@ -47,27 +85,7 @@ void set_int(int a, int *i)
 
 int printint(va_list list)
 {
-	int i, a;
-
-	a = va_arg(list, int);
-	i = 0;
-
-	if (a == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
-
-	if (a == INT_MIN)
-	{
-		_putchar('-');
-		_putchar('2');
-		set_int(147483648, &i);
-		i += 2;
-		return (i);
-	}
-	set_int(a, &i);
-	return (i);
+	return (printdec(list));
 }
 
 

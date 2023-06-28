@@ -13,7 +13,7 @@ int (*checker(char format))(va_list list)
 	specifier ar[] = {
 		{"c", printchar},
 		{"s", printstr},
-		{"d", printint},
+		{"d", printdec},
 		{"i", printint},
 		{NULL, NULL}
 	};
