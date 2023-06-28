@@ -40,7 +40,7 @@ void set_int(int a, int *i)
 
 /**
 * printdec - prints a decimal number to standard output
-* @inputs: the list of integers to be printed
+* @list: the list of integers to be printed
 * Return: the number of characters printed
 */
 
