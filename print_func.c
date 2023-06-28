@@ -13,8 +13,7 @@ int printchar(va_list list)
 	char c;
 
 	c = va_arg(list, int);
-	_putchar(c);
-	return (0);
+	return _putchar(c);
 }
 /**
  * printint - print integer
