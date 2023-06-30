@@ -11,7 +11,7 @@ typedef struct global
 {
 	char *c;
 	int (*f)(va_list);
-}specifier;
+} specifier;
 
 int (*print_type(char format))(va_list list);
 int _printf(const char *format, ...);
