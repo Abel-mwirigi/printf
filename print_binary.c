@@ -9,31 +9,30 @@
 
 int print_binary(va_list list)
 {
-	unsigned int i, count, num, binary, array[32];
+	int count;
+	unsigned int n = va_arg(list, int);
 
-	i = 0, count = 0;
-	num = va_arg(list, int);
+	count = 0;
+	count += printbase_bin(n);
 
-	if (num < 1)
-	{
-		_putchar('0');
-		count++;
-		return (count);
-	}
-	else
-	{
-		while (num > 0)
-		{
-			binary = num % 2;
-			num /= 2;
-			array[count] = binary;
-			count++;
-		}
-		for (i = count - 1; i > 0; i--)
-		{
-			_putchar('0' + array[i]);
-		}
-		_putchar('0' + array[i]);
-	}
 	return (count);
+
+}
+
+/**
+ * printbase_bin - print numbers
+ * @num: base
+ *
+ * Return: int printed
+ */
+char printbase_bin(unsigned int num)
+{
+	int count;
+
+	count = 0;
+	if (num / 2)
+		count += printbase_bin(num / 2);
+	count += _putchar(num % 2 + '0');
+	return (count);
+
 }
