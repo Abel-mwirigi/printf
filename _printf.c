@@ -8,37 +8,35 @@
 int _printf(const char *format, ...)
 {
 	int count = 0;
+	int i;
+	va_list list;
 
-	if (format != NULL)
+	va_start(list, format);
+
+	if (format == NULL)
+		return (-1);
+	if (format[0] == '%' && format[1] == '\0')
+		return (-1);
+
+	i = 0;
+	while (format[i] != '\0')
 	{
-		int i;
-		va_list list;
-		int (*f)(va_list);
-
-		va_start(list, format);
-		if (format[0] == '%' && format[1] == '\0')
-			return (-1);
-
-		i = 0;
-		while (format[i] != '\0')
+		if (format[i] == '%')
 		{
+			i++;
 			if (format[i] == '%')
 			{
-				i++;
-				if (format[i] == '%')
-				{
-					count += _putchar(format[i]);
-				}
-				else
-				{
-					count += (*print_type(format[i]))(list);
-				}
+				count += _putchar(format[i]);
 			}
 			else
-				count += _putchar(format[i]);
-			i++;
+			{
+				count += (*print_type(format[i]))(list);
+			}
 		}
-		va_end(list);
+		else
+			count += _putchar(format[i]);
+		i++;
 	}
+	va_end(list);
 	return (count);
 }

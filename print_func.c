@@ -8,7 +8,8 @@
 
 int printchar(va_list list)
 {
-	return (_putchar(va_arg(list, int)));
+	int c = va_arg(list, int);
+	return (_putchar(c));
 }
 
 /**
