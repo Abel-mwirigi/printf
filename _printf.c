@@ -30,15 +30,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					switch (format[i])
-					{
-						case 'c':
-							count += printchar(list);
-							break;
-						case 's':
-							count += printstr(list);
-							break;
-					}
+					count += (*print_type(format[i]))(list);
 				}
 			}
 			else

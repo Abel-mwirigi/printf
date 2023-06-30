@@ -13,7 +13,7 @@ typedef struct global
 	int (*f)(va_list);
 }specifier;
 
-int (*checker(char format))(va_list list);
+int (*print_type(char format))(va_list list);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int printchar(va_list list);

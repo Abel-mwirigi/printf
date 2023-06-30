@@ -5,7 +5,7 @@
  * @format:argument that precedes the list
  * Return:0 success
  */
-int (*checker(char format))(va_list list)
+int (*print_type(char format))(va_list list)
 {
 	specifier ar[] = {
 		{"c", printchar},
