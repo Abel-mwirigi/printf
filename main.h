@@ -1,11 +1,17 @@
 #ifndef MAIN_H
-#define MAIN_h
+#define MAIN_H
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+
+/**
+ * struct global - create a global function
+ * @c: the specifier
+ * @f: pointer function to be carried out
+ */
 
 typedef struct global
 {
@@ -23,4 +29,4 @@ int printstr(va_list list);
 void set_int(int a, int *i);
 int print_binary(va_list list);
 
-#endif/* MAIN_H */
+#endif /* MAIN_H */
