@@ -8,9 +8,7 @@
 
 int printchar(va_list list)
 {
-	int c = va_arg(list, int);
-
-	return (_putchar(c));
+	return (_putchar(va_arg(list, int)));
 }
 
 /**
