@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * checker - checks the format specifier
+ * print_type - checks the format specifier
  * @format:argument that precedes the list
  * Return:0 success
  */
