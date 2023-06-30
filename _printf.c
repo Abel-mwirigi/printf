@@ -27,19 +27,25 @@ int _printf(const char *format, ...)
 				if (format[i] == '%')
 				{
 					count += _putchar(format[i]);
-					i++;
 				}
-				else if (format[i] != '\0')
+				else
 				{
-					f = checker(format[i]);
-					count += (f ? f(list) : _putchar(format[i]) + _putchar(format[i + 1]));
-					i++;
+					switch (format[i])
+					{
+						case 'c':
+							count += printchar(list);
+							break;
+						case 's':
+							count += printstr(list);
+							break;
+					}
 				}
 			}
-			count += _putchar(format[i]);
+			else
+				count += _putchar(format[i]);
 			i++;
 		}
 		va_end(list);
 	}
-		return (count);
+	return (count);
 }
